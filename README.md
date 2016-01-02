@@ -16,13 +16,14 @@ python bball_ref.py
 
 ToDo
 ------
-> Decide what kind of db to store data in
-> Add abstraction layer to code
-> Parse multiple seasons. 
+* Decide what kind of db to store data in
+* Add abstraction layer to code
+* Parse multiple seasons. 
 
 Reference
 ---------
-Requests
-> http://docs.python-requests.org/en/latest/
-Beautiful Soup
-> http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+Requests -
+http://docs.python-requests.org/en/latest/
+
+Beautiful Soup - 
+http://www.crummy.com/software/BeautifulSoup/bs4/doc/
