@@ -3,8 +3,7 @@
 Current State
 -------------
 * Working on parsing basketball reference box scores to store in a database. Eventually want to make a UI to query the DB. 
-* Currently can parse a day's worth of games. Need to extend this out to the entire season and more.
-* Code is still very static. Mostly experimenting and trying out different ideas. 
+* Can grab any season's or day's data and store it in a list. Next step is to insert into sqlite table.
 
 Getting Started
 ---------------
@@ -17,7 +16,6 @@ python bball_ref.py
 ToDo
 ------
 * Store data in sqlite table
-* Parse multiple seasons. 
 
 Reference
 ---------
