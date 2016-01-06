@@ -16,8 +16,7 @@ python bball_ref.py
 
 ToDo
 ------
-* Decide what kind of db to store data in
-* Add abstraction layer to code
+* Store data in sqlite table
 * Parse multiple seasons. 
 
 Reference
