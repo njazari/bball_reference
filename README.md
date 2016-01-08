@@ -6,21 +6,21 @@ Getting Started
 ---------------
 To query current database:
 
-```sqlite3 bball-ref_dataset.db
+    sqlite3 bball-ref_dataset.db
 
-(.schema will reveal the schema)```
+    (.schema will reveal the schema)
 
 To run parser code: 
 
-```pip install virtualenv
+    pip install virtualenv
 
-virtualenv env
+    virtualenv env
 
-. env/bin/activate
+    . env/bin/activate
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
-python bball_ref.py```
+    python bball_ref.py
 
 Reference
 ---------
