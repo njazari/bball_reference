@@ -5,14 +5,21 @@ This program will parse boxscores from basketball reference and store them in a 
 Getting Started
 ---------------
 To query current database:
+
 sqlite3 bball-ref_dataset.db
+
 (.schema will reveal the schema)
 
 To run parser code: 
+
 pip install virtualenv
+
 virtualenv env
+
 . env/bin/activate
+
 pip install -r requirements.txt
+
 python bball_ref.py
 
 Reference
