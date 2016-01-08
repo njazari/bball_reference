@@ -1,8 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import sqlite3
 
 baseURL = "http://www.basketball-reference.com"
+db = sqlite3.connect("bball-ref_dataset.db")
+c = db.cursor()
 
 # return a list of the day's games
 def getGameURLs(month, day, year):
@@ -17,7 +20,7 @@ def getGameURLs(month, day, year):
 
 
 # list of stats for the given date
-def getGameStats(statList, boxscores, year):
+def getGameStats(statList, boxscores, year, db=True):
     for gameURL in boxscores:
         r = requests.get(baseURL + gameURL)
         soup = BeautifulSoup(r.text, 'html.parser')
@@ -54,8 +57,11 @@ def getGameStats(statList, boxscores, year):
                     playerStats.append(string)
                 while len(playerStats) < 22:
                     playerStats.append(None)
-                playerStats.append(baseURL + gameURL)
+                playerStats.append(baseURL + gameURL) 
                 if playerStats[1] != "Reserves":
+                    if db:
+                        c.execute('''insert into NBA_boxscores(team, name, minutes, FG, FGA, FG_Percent, ThreePt, ThreePtA, ThreePt_Percent, FT, FTA, FT_Percent, ORB, DRB, TRB, AST, STL, BLK, TOV, PF, PTS, plus_minus, game_url)
+                        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', playerStats)
                     statList.append(playerStats)
     return statList
 
@@ -82,8 +88,36 @@ def getDay(month, day, year):
         stats = getGameStats(stats, games, year)
     return stats
 
-#test = getSeason(2015, 2016)
-test = getDay(12, 23, 1946)
-for i in test:
-    print len(i)
-    print i
+def createTable():
+    c.execute('''create table if not exists NBA_boxscores
+        (team text,
+        name text,
+        minutes text,
+        FG integer,
+        FGA integer,
+        FG_Percent real,
+        ThreePt integer, 
+        ThreePtA integer,
+        ThreePt_Percent real,
+        FT integer, 
+        FTA integer, 
+        FT_Percent real,
+        ORB integer, 
+        DRB integer, 
+        TRB integer, 
+        AST integer, 
+        STL integer,
+        BLK integer,
+        TOV integer,
+        PF integer,
+        PTS integer,
+        plus_minus text, 
+        game_url text)''')
+
+createTable()
+test = getSeason(2015, 2016)
+print("Committing database changes.")
+db.commit()
+print("Done!")
+c.close()
+
