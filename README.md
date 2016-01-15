@@ -6,7 +6,7 @@ The current db stored in this repository contains all NBA boxscore data up to 01
 
 Getting Started
 ---------------
-To query current database:
+To query current database, first unzip the .db file and then run the following commands:
 
     sqlite3 bball-ref_dataset.db
 
