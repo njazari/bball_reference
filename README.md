@@ -1,21 +1,28 @@
 # bball_reference
 
-Current State
--------------
-* Working on parsing basketball reference box scores to store in a database. Eventually want to make a UI to query the DB. 
-* Can grab any season's or day's data and store it in a list. Next step is to insert into sqlite table.
+This program will parse boxscores from basketball reference and store them in a sqlite database. The next step is to add add a user interface where users can query the db. Also add automatic updates to the database.
+
+The current db stored in this repository contains all NBA boxscore data up to 01/13/2016. To add rows to the db, update/use the getRange function in the parser code.    
 
 Getting Started
 ---------------
-pip install virtualenv
-virtualenv env
-. env/bin/activate
-pip install -r requirements.txt
-python bball_ref.py
+To query current database:
 
-ToDo
-------
-* Store data in sqlite table
+    sqlite3 bball-ref_dataset.db
+
+    (.schema will reveal the schema)
+
+To run parser code: 
+
+    pip install virtualenv
+
+    virtualenv env
+
+    . env/bin/activate
+
+    pip install -r requirements.txt
+
+    python bball_ref.py
 
 Reference
 ---------
@@ -24,3 +31,4 @@ http://docs.python-requests.org/en/latest/
 
 Beautiful Soup - 
 http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
