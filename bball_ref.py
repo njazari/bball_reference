@@ -6,7 +6,7 @@ import time
 import datetime
 
 baseURL = "http://www.basketball-reference.com"
-db = sqlite3.connect("bball-ref_dataset.db")
+db = sqlite3.connect("bball-ref-dataset.db")
 c = db.cursor()
 dbWriteBool = True # set this to true if results are to be written to a db
 
