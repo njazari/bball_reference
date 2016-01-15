@@ -8,7 +8,7 @@ Getting Started
 ---------------
 To query current database, first unzip the .db file and then run the following commands:
 
-    sqlite3 bball-ref_dataset.db
+    sqlite3 bball-ref-dataset.db
 
     (.schema will reveal the schema)
 
