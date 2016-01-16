@@ -140,6 +140,7 @@ def getRows(query):
     c = db.cursor()
     c.execute(str(query))
     rows = c.fetchall()
+    c.close
     return rows
 
 # Ex: Get all of NBA history
@@ -157,8 +158,6 @@ getRange('01-01-2016', '01-13-2016')
 if __name__ == '__main__':
     db = sqlite3.connect("bball-ref-dataset.db")
     c = db.cursor()
-    print("Committing database changes.")
     db.commit()
-    print("Done!")
     c.close()
 

@@ -44,11 +44,13 @@
 <div>
     <h1>Basketball Query</h1>
     {% if stuff %}
-        <p>{{stuff}}</p>
+        {% for index in stuff %}
+            <p>{{index}}</p>
+        {% endfor %}
     {% else %}
-        <p>Enter query below: (use table boxscores)</p>
+        <p>Enter query below: (ex: select name, pts from boxscores where pts >= 80;)</p>
         <form action = "/query" method = "get"> 
-            <input type = "text" name = "query_form">
+            <input type = "text" name = "query_form" size="70">
             <input type="submit" value="Submit">
         </form>
     {% endif %}
