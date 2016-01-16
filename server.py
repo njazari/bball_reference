@@ -11,7 +11,7 @@ def index():
 def query_results():
     query = request.values.get("query_form")
     rows = bball_ref.getRows(query)
-    return rows
+    return render_template('index.html', stuff=rows)
 
 if __name__ == '__main__':
     app.run(debug=True)

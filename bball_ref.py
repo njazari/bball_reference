@@ -140,11 +140,7 @@ def getRows(query):
     c = db.cursor()
     c.execute(str(query))
     rows = c.fetchall()
-    output = ""
-    for i in rows:
-        output += str(i)
-        output += "\n"
-    return output
+    return rows
 
 # Ex: Get all of NBA history
 """

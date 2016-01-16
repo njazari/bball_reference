@@ -43,11 +43,15 @@
 <body>
 <div>
     <h1>Basketball Query</h1>
-    <p>Enter query below: (use table boxscores)</p>
-    <form action = "/query" method = "get"> 
-        <input type = "text" name = "query_form">
-        <input type="submit" value="Submit">
-    </form>
+    {% if stuff %}
+        <p>{{stuff}}</p>
+    {% else %}
+        <p>Enter query below: (use table boxscores)</p>
+        <form action = "/query" method = "get"> 
+            <input type = "text" name = "query_form">
+            <input type="submit" value="Submit">
+        </form>
+    {% endif %}
 </div>
 </body>
 </html>
