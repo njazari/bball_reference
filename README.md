@@ -24,6 +24,17 @@ To run parser code:
 
     python bball_ref.py
 
+To start user interface:
+    pip install virtualenv
+
+    virtualenv env
+
+    . env/bin/activate
+
+    pip install -r requirements.txt
+
+    python server.py
+
 Reference
 ---------
 Requests -

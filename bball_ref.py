@@ -6,8 +6,6 @@ import time
 import datetime
 
 baseURL = "http://www.basketball-reference.com"
-db = sqlite3.connect("bball-ref-dataset.db")
-c = db.cursor()
 dbWriteBool = True # set this to true if results are to be written to a db
 
 # return a list of the day's games
@@ -137,6 +135,17 @@ def createTable(db=dbWriteBool):
             plus_minus text, 
             game_url text)''')
 
+def getRows(query):
+    db = sqlite3.connect("bball-ref-dataset.db")
+    c = db.cursor()
+    c.execute(str(query))
+    rows = c.fetchall()
+    output = ""
+    for i in rows:
+        output += str(i)
+        output += "\n"
+    return output
+
 # Ex: Get all of NBA history
 """
 for year in range(1946, 2017):
@@ -149,8 +158,11 @@ for year in range(1946, 2017):
 getRange('01-01-2016', '01-13-2016')
 """
 
-print("Committing database changes.")
-db.commit()
-print("Done!")
-c.close()
+if __name__ == '__main__':
+    db = sqlite3.connect("bball-ref-dataset.db")
+    c = db.cursor()
+    print("Committing database changes.")
+    db.commit()
+    print("Done!")
+    c.close()
 
